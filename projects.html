@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.S.F - Projects</title>
+    
+    <!-- Link to the common and projects stylesheets -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <!-- Navigation Bar: Same as homepage -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section - Left side of navbar -->
+            <div class="nav-logo">
+                <span class="logo-text">G.S.F</span>
+            </div>
+            
+            <!-- Navigation Links - Right side of navbar -->
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        
+        <!-- Projects Header -->
+        <section class="projects-header">
+            <h1 class="page-title">My Projects</h1>
+            <p class="page-subtitle">Explore my featured work across different categories</p>
+        </section>
+
+        <!-- Category Navigation -->
+        <section class="categories-section">
+            <div class="category-filters">
+                <button class="category-btn active" onclick="filterProjects('All')">
+                    All Projects
+                </button>
+                <button class="category-btn" onclick="filterProjects('Main Projects')">
+                    Main Projects
+                </button>
+                <button class="category-btn" onclick="filterProjects('Other Projects')">
+                    Other Projects
+                </button>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be dynamically inserted here by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Popup for Project Details -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <!-- Close Button -->
+            <button class="modal-close" onclick="closeProjectModal()">×</button>
+            
+            <!-- Modal Title -->
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Project Title</h2>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="carousel-container">
+                <!-- Image Display Area -->
+                <div class="carousel-images">
+                    <img id="carouselImage" 
+                         src="photos\TechWeekLogo-picture.png" 
+                         alt="Project image" 
+                         class="carousel-image">
+                </div>
+
+                <!-- Image Counter and Description -->
+                <div class="carousel-info">
+                    <p class="image-counter">
+                        <span id="currentImageNumber">1</span> / <span id="totalImages">3</span>
+                    </p>
+                    <p class="image-description" id="imageDescription">
+                        Image description will appear here
+                    </p>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="carousel-arrow carousel-prev" onclick="prevImage()">
+                    &#10094;
+                </button>
+                <button class="carousel-arrow carousel-next" onclick="nextImage()">
+                    &#10095;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            
+            <!-- Contact Information -->
+            <div class="footer-content">
+                <h3 class="footer-title">Contact Me</h3>
+                <div class="contact-info">
+                    <!-- Phone Number -->
+                    <p class="contact-item">
+                        <strong>Phone:</strong> 099-264-87410
+                    </p>
+                     <p class="contact-item">
+                        <strong>Email:</strong> carlpesigan0105@gmail.com
+                    </p>
+                     <p class="contact-item">
+                        <strong>Address:</strong> Blk.19 Lt.13 Boston St., Brgy. Canlubang, Calamba City
+                    </p>
+                    
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1BjxG8WnRz/" target="_blank" class="social-link">
+                            Facebook
+                        </a>
+                        <a href="https://drive.google.com/file/d/1pbGgUBTw1v4a9Gd0bUslql_Zv3TToq3I/view?usp=sharing" target="_blank" class="social-link">
+                            Resume
+                        </a>
+                        <a href="https://youtu.be/Lz6GS-NPENI" target="_blank" class="social-link">
+                            Video Introduction
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript file for projects interactions -->
+    <script src="js/projects.js"></script>
+</body>
+</html>

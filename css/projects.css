@@ -1,0 +1,350 @@
+/**
+ * PROJECTS PAGE STYLES
+ * Styles for the projects page including project grid and modal carousel
+ */
+
+/* ===== MAIN CONTENT AREA ===== */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 200px);
+  /* Added min-height to ensure footer stays at bottom */
+}
+
+/* ===== PROJECTS PAGE HEADER ===== */
+.projects-header {
+  text-align: center;
+  padding: 3rem 0;
+  animation: fadeInDown 0.6s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: var(--text-black);
+  margin-bottom: 1rem;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+}
+
+/* ===== CATEGORY FILTERS ===== */
+.categories-section {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 3rem;
+  animation: fadeIn 0.6s ease 0.2s backwards;
+}
+
+.category-filters {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary-red);
+  background-color: transparent;
+  color: var(--primary-red);
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background-color: var(--primary-red);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+}
+
+.category-btn.active {
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+/* ===== PROJECTS GRID ===== */
+.projects-section {
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Project Item */
+.project-item {
+  background-color: var(--bg-white);
+  border: 2px solid var(--light-gray);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  animation: popIn 0.5s ease backwards;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.project-item.hidden {
+  display: none;
+}
+
+.project-item:hover {
+  border-color: var(--primary-red);
+  box-shadow: 0 8px 24px rgba(230, 57, 70, 0.2);
+  transform: translateY(-8px);
+}
+
+.project-thumbnail {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.project-item:hover .project-thumbnail {
+  transform: scale(1.1);
+}
+
+.project-details {
+  padding: 1.5rem;
+}
+
+.project-category {
+  font-size: 0.8rem;
+  color: var(--primary-red);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-name {
+  font-size: 1.3rem;
+  color: var(--text-black);
+  margin-bottom: 0.5rem;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+  line-height: 1.5;
+}
+
+/* ===== MODAL STYLES ===== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content Container */
+.modal-content {
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.4s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: var(--text-black);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  z-index: 2001;
+}
+
+.modal-close:hover {
+  color: var(--primary-red);
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 2rem;
+  border-bottom: 2px solid var(--light-gray);
+  background-color: var(--light-gray);
+}
+
+.modal-title {
+  font-size: 1.8rem;
+  color: var(--text-black);
+}
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.carousel-images {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: var(--light-gray);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Image Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(230, 57, 70, 0.8);
+  color: var(--bg-white);
+  border: none;
+  font-size: 1.8rem;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+  z-index: 100;
+}
+
+.carousel-prev {
+  left: 1rem;
+}
+
+.carousel-next {
+  right: 1rem;
+}
+
+.carousel-arrow:hover {
+  background-color: var(--accent-yellow);
+  color: var(--text-black);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Image Information */
+.carousel-info {
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.image-counter {
+  font-size: 0.9rem;
+  color: var(--primary-red);
+  font-weight: 600;
+}
+
+.image-description {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  line-height: 1.6;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .category-filters {
+    gap: 0.5rem;
+  }
+
+  .category-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .carousel-container {
+    padding: 1rem;
+  }
+
+  .carousel-arrow {
+    padding: 0.8rem 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+#projectModal img {
+  max-width: 60vw !important;
+  max-height: 70vh !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+}
+
+#projectModal {
+  overflow: hidden;
+}

@@ -1,0 +1,301 @@
+/**
+ * COMMON STYLES - Shared across all pages
+ * This file contains global styles for navbar, footer, and common elements
+ */
+
+/* ===== CSS VARIABLES: Color Scheme ===== */
+:root {
+  /* Brand Colors */
+  --primary-red: #e63946; /* Primary brand color - Red */
+  --accent-yellow: #ffd60a; /* Accent color - Yellow */
+  --text-black: #1a1a1a; /* Text color - Black */
+  --bg-white: #ffffff; /* Background - White */
+  --dark-gray: #333333; /* Dark gray for contrast */
+  --light-gray: #f5f5f5; /* Light gray for backgrounds */
+
+  /* Animation Timing */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s ease;
+  --transition-slow: 0.6s ease;
+}
+
+/* ===== GLOBAL RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-white);
+  color: var(--text-black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: var(--text-black);
+}
+
+a {
+  color: var(--primary-red);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-yellow);
+}
+
+/* ===== NAVIGATION BAR ===== */
+.navbar {
+  background-color: var(--bg-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Section - Left side */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary-red);
+  letter-spacing: 2px;
+  transition: transform var(--transition-fast);
+  text-shadow:
+    -1.5px -1.5px 0 black,
+     1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+     1.5px  1.5px 0 black;
+}
+
+.logo-text:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Links - Right side */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-black);
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-red);
+  transition: width var(--transition-normal);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: var(--text-black);
+  color: var(--bg-white);
+  padding: 3rem 2rem 1rem;
+  margin-top: 4rem;
+  animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--primary-red);
+  padding-bottom: 2rem;
+}
+
+.footer-title {
+  font-size: 1.3rem;
+  color: var(--accent-yellow);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-item a {
+  color: var(--accent-yellow);
+}
+
+.contact-item a:hover {
+  color: var(--primary-red);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  color: var(--bg-white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary-red);
+  border-radius: 4px;
+  transition: all var(--transition-normal);
+  display: inline-block;
+}
+
+.social-link:hover {
+  background-color: var(--primary-red);
+  color: var(--accent-yellow);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--light-gray);
+}
+
+/* ===== BUTTONS - Common Styles ===== */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-red);
+  color: var(--bg-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-yellow);
+  color: var(--text-black);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--accent-yellow);
+  color: var(--text-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-red);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
